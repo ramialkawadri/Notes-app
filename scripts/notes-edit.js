@@ -10,7 +10,7 @@ let notes = getSavedNotes();
 let note = notes.find((note) => note.id === noteId);
 
 if (!note) {
-  location.assign('/index.html');
+  location.assign('./index.html');
 }
 noteTitleInput.value = note.title;
 noteBodyInput.value = note.body;
@@ -31,7 +31,7 @@ noteBodyInput.addEventListener('input', () => {
 
 removeButton.addEventListener('click', () => {
   removeNote(note.id);
-  location.assign('/index.html');
+  location.assign('./index.html');
   saveNotes(notes);
 });
 
@@ -41,7 +41,7 @@ window.addEventListener('storage', (e) => {
     let note = notes.find((note) => note.id === noteId);
 
     if (!note) {
-      location.assign('/index.html');
+      location.assign('./index.html');
     }
     noteTitleInput.value = note.title;
     noteBodyInput.value = note.body;
