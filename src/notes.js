@@ -7,11 +7,12 @@ let notes = [];
 const loadNotes = () => {
   const notesJSON = localStorage.getItem('notes');
   try {
-    return notesJSON ? JSON.parse(notesJSON) : [];
+    notes = notesJSON ? JSON.parse(notesJSON) : [];
   } catch (_) {
-    return [];
+    notes = [];
   }
 };
+loadNotes();
 
 // Saves the notes to local storage
 const saveNotes = () => {
@@ -83,8 +84,6 @@ const updateNote = (id, updates) => {
   return note;
 };
 
-notes = loadNotes();
-
-export { getNotes, createNote, removeNote, sortNotes, updateNote };
+export { loadNotes, getNotes, createNote, removeNote, sortNotes, updateNote };
 
 

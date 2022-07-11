@@ -1,5 +1,5 @@
 import { initalizeEditPage, generateLastEdited } from './views';
-import { updateNote, removeNote } from './notes';
+import { updateNote, removeNote, loadNotes } from './notes';
 
 const noteId = location.hash.substring(1);
 const removeButton = document.getElementById('remove');
@@ -29,6 +29,13 @@ removeButton.addEventListener('click', () => {
 
 window.addEventListener('storage', (e) => {
   if (e.key === 'notes') {
+    initalizeEditPage(noteId);
+  }
+});
+
+window.addEventListener('storage', (e) => {
+  if (e.key === 'notes') {
+    loadNotes();
     initalizeEditPage(noteId);
   }
 });
